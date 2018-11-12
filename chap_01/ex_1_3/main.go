@@ -22,16 +22,16 @@ func main() {
 	for i := 1; i < len(os.Args); i++ {
 		fmt.Println(os.Args[i])
 	}
-	timeTrack(start, "'[loop]'")
+	timeTrack(start, "[loop]")
 
 	start = time.Now()
     for _, arg := range os.Args[1:] {
 		fmt.Println(arg)
 	}
-	timeTrack(start, "'[for+range]'")
+	timeTrack(start, "[for+range]")
 
 	start = time.Now()
     fmt.Println(strings.Join(os.Args[1:], "\n"))
-	timeTrack(start, "'[join]'")
+	timeTrack(start, "[join]")
 
 }
