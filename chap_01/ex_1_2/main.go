@@ -8,7 +8,7 @@ import (
 
 // starts program execution
 func main() {
-	for k, v := range os.Args {
+    for k, v := range os.Args[1:] {
 		fmt.Println(k, "-", v)
 	}
 }
