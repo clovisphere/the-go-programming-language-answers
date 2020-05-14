@@ -1,3 +1,5 @@
+// dup1 prints the text of each line that appeats more than
+// once in the standard input, preceded by its count.
 package main
 
 import (
