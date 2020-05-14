@@ -12,8 +12,7 @@ import (
 // times a process
 func timeTrack(start time.Time, name string) {
 	elpased := time.Since(start)
-	log.Printf("%s took: %s", name, elpased)
-    fmt.Println()
+	log.Printf("%s took: %s\n\n", name, elpased)
 }
 
 // starts program execution
