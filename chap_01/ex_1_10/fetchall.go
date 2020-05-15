@@ -16,11 +16,11 @@ func main() {
 	for _, url := range os.Args[1:] {
 		go fetch(url, ch) // start a goroutine
 	}
-	//open file to add content to it:w
+	//open file to add content to it
 	f, err := os.OpenFile("data.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		fmt.Printf("an error occurred: %v\n", err)
-		os.Exit(1) // if we can't open file, ther's nothing else we can do so let's exit
+		os.Exit(1) // if we can't open file, there's nothing else we can do so let's exit
 	}
 	defer f.Close() // close file after all content is added
 	for range os.Args[1:] {
