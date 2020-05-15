@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
@@ -19,8 +21,9 @@ func main() {
 			os.Exit(1)
 		}
 		// NOTE: only interested in the HTTP status code returned,
-		// so didn't bother retrieving the content of resp.Body
+		// disregarding resp.Body content
+		nbytes, err := io.Copy(ioutil.Discard, resp.Body)
 		resp.Body.Close()
-		fmt.Printf("What was the HTTP status code returned? %v\n", resp.Status)
+		fmt.Printf("Total number of bytes: %v\nWhat was the HTTP status code returned? %v\n", nbytes, resp.Status)
 	}
 }
