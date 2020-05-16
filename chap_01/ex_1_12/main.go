@@ -35,23 +35,23 @@ func main() {
 }
 
 func lissajous(out io.Writer, query map[string]string) {
-	var cycles int // number of complete x oscillator revolutions
-	
+	var cycles int = 5 // number of complete x oscillator revolutions, default 5
+
 	const (
 		res     = 0.001 // angular resolution
 		size    = 100   // image canvas covers [-size..+size]
 		nframes = 64    // number of animation frames
 		delay   = 8     // delay between frames in 10ms unit
 	)
-	
 	// NOTE: doing this 'cause "cycles" should be passed as a query parameter
 	if val, ok := query["cycles"]; ok {
 		if value, err := strconv.Atoi(val); err != nil {
-			cycles = 5
+			log.Printf("%v -- using default cycles=%d", err, cycles)
 		} else {
 			cycles = value
 		}
 	}
+
 	freq := rand.Float64() * 3.0 // relative frequency of y oscillator
 	anim := gif.GIF{LoopCount: nframes}
 	phase := 0.0 // phase difference
