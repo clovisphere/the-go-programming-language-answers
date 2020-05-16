@@ -67,5 +67,5 @@ func lissajous(out io.Writer, query map[string]string) {
 		anim.Delay = append(anim.Delay, delay)
 		anim.Image = append(anim.Image, img)
 	}
-	gif.EncodeAll(out, &anim) // NOTE: ingonring encoding errors
+	gif.EncodeAll(out, &anim) // NOTE: ignoring encoding errors
 }
