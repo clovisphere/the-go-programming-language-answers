@@ -7,5 +7,5 @@ Contains my solutions to the exercises in [The Go Programming Language](https://
 The below command can be used on any of the .go file found in the chapters' folders.
 
 ```bash
-go run SOURCE_CODE.go
+$ go run SOURCE_CODE.go
 ```
