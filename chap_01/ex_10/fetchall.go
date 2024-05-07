@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/enescakir/emoji"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/enescakir/emoji"
 )
 
 func main() {
@@ -29,7 +29,9 @@ func main() {
 			fmt.Printf("an error occurred: %v\n", err)
 		}
 	}
+
 	fmt.Printf("\nDone %v\n%.2fs elapsed\n", emoji.OkHand.Tone(emoji.Light), time.Since(start).Seconds())
+
 }
 
 func fetch(url string, ch chan<- string) {
@@ -39,7 +41,7 @@ func fetch(url string, ch chan<- string) {
 		ch <- fmt.Sprintf("an error occurred: %v\n", err) // send to channel ch
 		return
 	}
-	nbytes, err := io.Copy(ioutil.Discard, resp.Body)
+	nbytes, err := io.Copy(io.Discard, resp.Body)
 	resp.Body.Close() // don't leak resources
 	if err != nil {
 		ch <- fmt.Sprintf("while reading %s: %v\n", url, err)
