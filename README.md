@@ -1,4 +1,4 @@
-# Go Answers
+# The Go Programming Language's Answers
 
 Contains my solutions to the exercises in [The Go Programming Language](https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440/ref=sr_1_1?s=books&ie=UTF8&qid=1514225315&sr=1-1&keywords=the+go+programming+book) book.
 
